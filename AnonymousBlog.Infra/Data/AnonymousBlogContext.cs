@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AnonymousBlog.Core.Entities;
+
 using Microsoft.EntityFrameworkCore;
-using AnonymousBlog.Core.Entities;
 
 namespace AnonymousBlog.Ui.Data
 {
@@ -17,7 +14,6 @@ namespace AnonymousBlog.Ui.Data
         public DbSet<User> User { get; set; } = default!;
         public DbSet<Post> Post { get; set; } = default!;
         public DbSet<Tag> Tag { get; set; } = default!;
-        public DbSet<PostTag> PostTag { get; set; } = default!;
         public DbSet<Comment> Comment { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

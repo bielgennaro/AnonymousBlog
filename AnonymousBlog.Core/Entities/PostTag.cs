@@ -2,20 +2,19 @@
 {
     public sealed class PostTag
     {
-        private int PostId { get; set; }
+        public int PostId { get; set; }
+        public Post Post { get; set; }
 
-        private int TagId { get; set; }
+        public int TagId { get; set; }
+        public Tag Tag { get; set; }
 
-        private Post Post { get; set; }
+        public PostTag()
+        { }
 
-        private Tag Tag { get; set; }
-
-        public PostTag(int postId, int tagId, Post post, Tag tag)
+        public PostTag(int postId, int tagId)
         {
             PostId = postId;
             TagId = tagId;
-            Post = post;
-            Tag = tag;
         }
     }
 }

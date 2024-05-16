@@ -4,12 +4,15 @@ namespace AnonymousBlog.Core.Entities
 {
     public sealed class Tag
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Name field can't be null!")]
-        private string Name { get; set; }
+        public string Name { get; set; }
 
-        private ICollection<PostTag> PostTags { get; } = new List<PostTag>();
+        public ICollection<PostTag> PostTags { get; set; }
+
+        public Tag()
+        { }
 
         public Tag(int id, string name)
         {
@@ -20,6 +23,19 @@ namespace AnonymousBlog.Core.Entities
         public Tag(string name)
         {
             Name = name;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Tag tag &&
+                   Id == tag.Id &&
+                   Name == tag.Name &&
+                   EqualityComparer<ICollection<PostTag>>.Default.Equals(PostTags, tag.PostTags);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, PostTags);
         }
     }
 }

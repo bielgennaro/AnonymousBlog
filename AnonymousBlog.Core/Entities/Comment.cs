@@ -1,32 +1,32 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AnonymousBlog.Core.Entities
 {
     public sealed class Comment
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Content field can't be null!")]
-        private string Content { get; set; }
+        public string Content { get; set; }
 
-        private DateTime CreatedAt { get; set; } = DateTime.Parse(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"));
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        private Post PostId { get; set; }
+        public int PostId { get; set; }
 
-        public Comment(int id, string content, DateTime createdAt, Post postId)
+        public Comment()
+        { }
+
+        public Comment(int id, string content, DateTime createdAt)
         {
             Id = id;
             Content = content;
             CreatedAt = createdAt;
-            PostId = postId;
         }
 
-        public Comment(string content, DateTime createdAt, Post postId)
+        public Comment(string content, DateTime createdAt)
         {
             Content = content;
             CreatedAt = createdAt;
-            PostId = postId;
         }
 
         public override bool Equals(object? obj)
@@ -35,7 +35,7 @@ namespace AnonymousBlog.Core.Entities
                    Id == comment.Id &&
                    Content == comment.Content &&
                    CreatedAt == comment.CreatedAt &&
-                   EqualityComparer<Post>.Default.Equals(PostId, comment.PostId);
+                   PostId == comment.PostId;
         }
 
         public override int GetHashCode()
