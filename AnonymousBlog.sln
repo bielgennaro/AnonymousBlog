@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousBlog.Test", "Anony
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousBlog.Application", "AnonymousBlog.Application\AnonymousBlog.Application.csproj", "{630611F8-9FE0-44A1-9FB4-E9EAE61624CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousBlog.Ui", "AnonymousBlog.Ui\AnonymousBlog.Ui.csproj", "{F24CC4AB-D90C-4D46-9C0E-0C4627477357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnonymousBlog.Ui", "AnonymousBlog.Ui\AnonymousBlog.Ui.csproj", "{F24CC4AB-D90C-4D46-9C0E-0C4627477357}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{4963A24A-98C4-4C87-ADBC-FD7C1C727800}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

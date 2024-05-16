@@ -1,11 +1,15 @@
-﻿namespace AnonymousBlog.Core.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AnonymousBlog.Core.Entities
 {
     public sealed class Post
     {
         private int Id { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Title field can't be null!")]
         private string Title { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Content field can't be null!")]
         private string Content { get; set; }
 
         private DateTime CreatedAt { get; set; }

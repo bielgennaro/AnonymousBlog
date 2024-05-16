@@ -1,14 +1,22 @@
-﻿namespace AnonymousBlog.Core.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AnonymousBlog.Core.Entities
 {
     public sealed class User
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        private string Username { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Username field can't be null!")]
+        public string Username { get; set; }
 
-        private string Password { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Password field can't be null!")]
+        public string Password { get; set; }
 
-        private string Email { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Email field can't be null!")]
+        public string Email { get; set; }
+
+        public User()
+        { }
 
         public User(int id, string username, string password, string email)
         {

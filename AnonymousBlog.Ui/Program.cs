@@ -1,4 +1,7 @@
 using AnonymousBlog.Ui.Components;
+using AnonymousBlog.Ui.Data;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace AnonymousBlog.Ui
 {
@@ -7,6 +10,8 @@ namespace AnonymousBlog.Ui
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<AnonymousBlogContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DevConnection") ?? throw new InvalidOperationException("Connection string 'AnonymousBlogContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
